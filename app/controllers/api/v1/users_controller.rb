@@ -46,9 +46,9 @@ class Api::V1::UsersController < ApplicationController
 
   def user_params
     # Role alanını sadece admin kullanıcılar değiştirebilir
-    permitted_params = [:email, :password, :password_confirmation, :name, :institution]
+    permitted_params = [ :email, :password, :password_confirmation, :name, :institution ]
     permitted_params << :role if current_user&.admin?
-    
+
     params.require(:user).permit(permitted_params)
   end
 end
