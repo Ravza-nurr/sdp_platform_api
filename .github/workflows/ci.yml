@@ -3,7 +3,7 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   scan_ruby:
@@ -20,7 +20,8 @@ jobs:
           bundler-cache: true
 
       - name: Scan for common Rails security vulnerabilities using static analysis
-        run: bin/brakeman --no-pager
+        # Düzeltme yapıldı: bin/brakeman yerine bundle exec brakeman kullanıldı
+        run: bundle exec brakeman --no-pager
 
   lint:
     runs-on: ubuntu-latest
@@ -35,7 +36,8 @@ jobs:
           bundler-cache: true
 
       - name: Lint code for consistent style
-        run: bin/rubocop -f github
+        # Düzeltme yapıldı: bin/rubocop yerine bundle exec rubocop kullanıldı
+        run: bundle exec rubocop -f github
 
   test:
     runs-on: ubuntu-latest
@@ -74,4 +76,5 @@ jobs:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432
           # REDIS_URL: redis://localhost:6379/0
-        run: bin/rails db:test:prepare test
+        # Düzeltme yapıldı: bin/rails yerine bundle exec rails kullanıldı
+        run: bundle exec rails db:test:prepare test
