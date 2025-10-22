@@ -21,11 +21,10 @@ module SdpPlatformApi
 
     # API Only uygulaması olduğumuz için, View, Helper ve Asset pipeline'ı atlayabiliriz
     config.api_only = true
-    
+
     # Yeni oluşturulan modellerin primary key'inin UUID olmasını sağlar
     config.generators do |g|
       g.orm :active_record, primary_key_type: :uuid
     end
-
   end
 end

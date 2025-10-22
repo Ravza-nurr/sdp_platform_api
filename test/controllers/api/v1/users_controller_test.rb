@@ -21,11 +21,11 @@ module Api
       # POST /api/v1/users
       def create
         @user = User.new(user_params)
-        
+
         # NOTE: Şifre alanı zorunluysa, Devise/Bcrypt ile birlikte çalışması gerekir.
         # Basit bir API simülasyonu için, sadece verileri kaydetme örneği
         @user.encrypted_password = BCrypt::Password.create(params[:user][:password]) if params[:user][:password].present?
-        
+
         if @user.save
           render json: @user, status: :created
         else

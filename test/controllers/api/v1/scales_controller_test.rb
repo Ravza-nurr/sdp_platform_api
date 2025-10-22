@@ -54,16 +54,16 @@ module Api
       # Strong Parameters (Güçlü Parametreler)
       def scale_params
         params.require(:scale).permit(
-          :title, 
-          :description, 
-          :doi_identifier, 
-          :version, 
-          :language, 
-          :category, 
-          :total_items, 
-          :creator_id, 
-          :status, 
-          :usage_count, 
+          :title,
+          :description,
+          :doi_identifier,
+          :version,
+          :language,
+          :category,
+          :total_items,
+          :creator_id,
+          :status,
+          :usage_count,
           metadata: {} # JSONB alanı için izin
         )
       end
