@@ -45,6 +45,13 @@ class Api::V1::AnalysesController < ApplicationController
   end
 
   def analysis_params
-    params.require(:analysis).permit(:user_id, :survey_id, :analysis_type, :parameters, :results, :status, :credit_cost, :r_script, :output_file, :error_message)
+    # Status, results ve credit_cost alanlarını sadece analysis sahibi veya admin değiştirebilir
+    permitted_params = [:survey_id, :analysis_type, :parameters, :r_script, :output_file, :error_message]
+    
+    if current_user&.admin? || @analysis&.user_id == current_user&.id
+      permitted_params += [:status, :results, :credit_cost]
+    end
+    
+    params.require(:analysis).permit(permitted_params)
   end
 end

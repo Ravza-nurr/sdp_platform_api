@@ -45,6 +45,13 @@ class Api::V1::ReportsController < ApplicationController
   end
 
   def report_params
-    params.require(:report).permit(:analysis_id, :user_id, :format, :content, :file_path, :status)
+    # Status alanını sadece report sahibi veya admin değiştirebilir
+    permitted_params = [:analysis_id, :format, :content, :file_path]
+    
+    if current_user&.admin? || @report&.user_id == current_user&.id
+      permitted_params << :status
+    end
+    
+    params.require(:report).permit(permitted_params)
   end
 end

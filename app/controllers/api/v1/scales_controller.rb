@@ -45,6 +45,13 @@ class Api::V1::ScalesController < ApplicationController
   end
 
   def scale_params
-    params.require(:scale).permit(:title, :description, :doi_identifier, :version, :language, :category, :total_items, :creator_id, :status, :metadata, :usage_count)
+    # Status ve usage_count alanlarını sadece scale sahibi veya admin değiştirebilir
+    permitted_params = [:title, :description, :doi_identifier, :version, :language, :category, :total_items, :metadata]
+    
+    if current_user&.admin? || @scale&.creator_id == current_user&.id
+      permitted_params += [:status, :usage_count]
+    end
+    
+    params.require(:scale).permit(permitted_params)
   end
 end

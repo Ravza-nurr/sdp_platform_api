@@ -45,6 +45,13 @@ class Api::V1::SurveysController < ApplicationController
   end
 
   def survey_params
-    params.require(:survey).permit(:title, :description, :scale_id, :user_id, :status, :distribution_mode, :start_date, :end_date, :response_count, :target_responses, :settings)
+    # Status ve response_count alanlarını sadece survey sahibi veya admin değiştirebilir
+    permitted_params = [:title, :description, :scale_id, :distribution_mode, :start_date, :end_date, :target_responses, :settings]
+    
+    if current_user&.admin? || @survey&.user_id == current_user&.id
+      permitted_params += [:status, :response_count]
+    end
+    
+    params.require(:survey).permit(permitted_params)
   end
 end
