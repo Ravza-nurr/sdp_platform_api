@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :analyses
   has_many :credit_transactions
   has_many :reports
+  has_many :responses, through: :surveys
 
   # Doğrulamalar
   validates :email, presence: true, uniqueness: true

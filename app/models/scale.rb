@@ -6,5 +6,10 @@ class Scale < ApplicationRecord
   # Durum tanımlamaları
   enum status: { draft: 0, review: 1, published: 2, archived: 3 }
 
-  # JSONB alanları için doğrulama veya yöntemler buraya eklenebilir.
+  # Doğrulamalar
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :creator_id, presence: true
+  validates :total_items, presence: true, numericality: { greater_than: 0 }
+  validates :usage_count, numericality: { greater_than_or_equal_to: 0 }
 end

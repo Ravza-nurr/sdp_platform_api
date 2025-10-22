@@ -7,4 +7,10 @@ class Analysis < ApplicationRecord
   # Tip ve Durum tanımlamaları
   enum analysis_type: { descriptive: 0, factor_analysis: 1, reliability: 2 }
   enum status: { pending: 0, running: 1, completed: 2, failed: 3 }
+
+  # Doğrulamalar
+  validates :user_id, presence: true
+  validates :survey_id, presence: true
+  validates :analysis_type, presence: true
+  validates :credit_cost, numericality: { greater_than_or_equal_to: 0 }
 end
