@@ -1,5 +1,5 @@
 class Api::V1::ScalesController < ApplicationController
-  before_action :set_scale, only: [:show, :update, :destroy]
+  before_action :set_scale, only: [ :show, :update, :destroy ]
 
   # GET /api/v1/scales
   def index
@@ -15,7 +15,7 @@ class Api::V1::ScalesController < ApplicationController
   # POST /api/v1/scales
   def create
     @scale = Scale.new(scale_params)
-    
+
     if @scale.save
       render json: @scale, status: :created
     else

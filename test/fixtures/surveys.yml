@@ -1,27 +1,27 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  description: MyText
-  scale_id: 
-  user_id: 
+  title: Depression Survey
+  description: A survey to assess depression levels
+  scale_id: <%= Scale.first&.id || "00000000-0000-0000-0000-000000000001" %>
+  user_id: <%= User.first&.id || "00000000-0000-0000-0000-000000000001" %>
   status: 1
-  distribution_mode: 1
+  distribution_mode: 0
   start_date: 2025-10-21 22:01:36
-  end_date: 2025-10-21 22:01:36
-  response_count: 1
-  target_responses: 1
-  settings: 
+  end_date: 2025-12-21 22:01:36
+  response_count: 0
+  target_responses: 100
+  settings: {}
 
 two:
-  title: MyString
-  description: MyText
-  scale_id: 
-  user_id: 
+  title: Anxiety Survey
+  description: A survey to assess anxiety levels
+  scale_id: <%= Scale.first&.id || "00000000-0000-0000-0000-000000000001" %>
+  user_id: <%= User.first&.id || "00000000-0000-0000-0000-000000000001" %>
   status: 1
-  distribution_mode: 1
+  distribution_mode: 0
   start_date: 2025-10-21 22:01:36
-  end_date: 2025-10-21 22:01:36
-  response_count: 1
-  target_responses: 1
-  settings: 
+  end_date: 2025-12-21 22:01:36
+  response_count: 0
+  target_responses: 100
+  settings: {}

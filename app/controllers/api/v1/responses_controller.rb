@@ -1,5 +1,5 @@
 class Api::V1::ResponsesController < ApplicationController
-  before_action :set_response, only: [:show, :update, :destroy]
+  before_action :set_response, only: [ :show, :update, :destroy ]
 
   # GET /api/v1/responses
   def index
@@ -15,7 +15,7 @@ class Api::V1::ResponsesController < ApplicationController
   # POST /api/v1/responses
   def create
     @response = Response.new(response_params)
-    
+
     if @response.save
       render json: @response, status: :created
     else

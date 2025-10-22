@@ -1,17 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  analysis_id: 
-  user_id: 
-  format: 1
-  content: MyText
-  file_path: MyString
+  analysis_id: <%= Analysis.first&.id || "00000000-0000-0000-0000-000000000001" %>
+  user_id: <%= User.first&.id || "00000000-0000-0000-0000-000000000001" %>
+  format: 0
+  content: "Analysis Report Content"
+  file_path: "/reports/analysis_001.pdf"
   status: 1
 
 two:
-  analysis_id: 
-  user_id: 
+  analysis_id: <%= Analysis.first&.id || "00000000-0000-0000-0000-000000000001" %>
+  user_id: <%= User.first&.id || "00000000-0000-0000-0000-000000000001" %>
   format: 1
-  content: MyText
-  file_path: MyString
+  content: "Analysis Report Content"
+  file_path: "/reports/analysis_002.docx"
   status: 1

@@ -1,27 +1,27 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  description: MyText
-  doi_identifier: MyString
-  version: MyString
-  language: MyString
-  category: MyString
-  total_items: 1
-  creator_id: 
-  status: 1
-  metadata: 
-  usage_count: 1
+  title: Beck Depression Inventory
+  description: Depression assessment scale
+  doi_identifier: 10.1000/182
+  version: 2.0
+  language: Turkish
+  category: Mental Health
+  total_items: 21
+  creator_id: <%= User.first&.id || "00000000-0000-0000-0000-000000000001" %>
+  status: 2
+  metadata: {}
+  usage_count: 0
 
 two:
-  title: MyString
-  description: MyText
-  doi_identifier: MyString
-  version: MyString
-  language: MyString
-  category: MyString
-  total_items: 1
-  creator_id: 
-  status: 1
-  metadata: 
-  usage_count: 1
+  title: Anxiety Scale
+  description: Anxiety assessment scale
+  doi_identifier: 10.1000/183
+  version: 1.0
+  language: Turkish
+  category: Mental Health
+  total_items: 20
+  creator_id: <%= User.first&.id || "00000000-0000-0000-0000-000000000001" %>
+  status: 2
+  metadata: {}
+  usage_count: 0

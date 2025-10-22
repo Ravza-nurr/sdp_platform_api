@@ -1,5 +1,5 @@
 class Api::V1::ReportsController < ApplicationController
-  before_action :set_report, only: [:show, :update, :destroy]
+  before_action :set_report, only: [ :show, :update, :destroy ]
 
   # GET /api/v1/reports
   def index
@@ -15,7 +15,7 @@ class Api::V1::ReportsController < ApplicationController
   # POST /api/v1/reports
   def create
     @report = Report.new(report_params)
-    
+
     if @report.save
       render json: @report, status: :created
     else

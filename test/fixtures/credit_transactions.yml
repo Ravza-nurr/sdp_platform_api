@@ -1,15 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: 
-  amount: 1
-  transaction_type: 1
-  description: MyString
-  balance_after: 1
+  user_id: <%= User.first&.id || "00000000-0000-0000-0000-000000000001" %>
+  amount: 100
+  transaction_type: 0
+  description: Initial credit purchase
+  balance_after: 100
 
 two:
-  user_id: 
-  amount: 1
+  user_id: <%= User.first&.id || "00000000-0000-0000-0000-000000000001" %>
+  amount: -10
   transaction_type: 1
-  description: MyString
-  balance_after: 1
+  description: Analysis usage
+  balance_after: 90

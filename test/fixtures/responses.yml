@@ -1,21 +1,21 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  survey_id: 
-  participant_id: 
-  response_data: 
-  demographic_data: 
+  survey_id: <%= Survey.first&.id || "00000000-0000-0000-0000-000000000001" %>
+  participant_id: participant-001
+  response_data: { "question_1": 3, "question_2": 4, "question_3": 2 }
+  demographic_data: { "age": 25, "gender": "female", "education": "university" }
   completed_at: 2025-10-21 22:01:47
-  ip_address: MyString
-  device_info: MyString
-  is_complete: false
+  ip_address: 192.168.1.1
+  device_info: Chrome/Windows
+  is_complete: true
 
 two:
-  survey_id: 
-  participant_id: 
-  response_data: 
-  demographic_data: 
+  survey_id: <%= Survey.first&.id || "00000000-0000-0000-0000-000000000001" %>
+  participant_id: participant-002
+  response_data: { "question_1": 2, "question_2": 3, "question_3": 1 }
+  demographic_data: { "age": 30, "gender": "male", "education": "high_school" }
   completed_at: 2025-10-21 22:01:47
-  ip_address: MyString
-  device_info: MyString
-  is_complete: false
+  ip_address: 192.168.1.2
+  device_info: Firefox/Windows
+  is_complete: true

@@ -4,8 +4,8 @@ class Report < ApplicationRecord
   belongs_to :user
 
   # Format ve Durum tanımlamaları
-  enum format: { pdf: 0, docx: 1, html: 2 }
-  enum status: { generating: 0, ready: 1, error: 2 }
+  enum :format, { pdf: 0, docx: 1, html: 2 }
+  enum :status, { generating: 0, ready: 1, error: 2 }
 
   # Doğrulamalar
   validates :analysis_id, presence: true

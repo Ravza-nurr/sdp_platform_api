@@ -1,5 +1,5 @@
 class Api::V1::SurveysController < ApplicationController
-  before_action :set_survey, only: [:show, :update, :destroy]
+  before_action :set_survey, only: [ :show, :update, :destroy ]
 
   # GET /api/v1/surveys
   def index
@@ -15,7 +15,7 @@ class Api::V1::SurveysController < ApplicationController
   # POST /api/v1/surveys
   def create
     @survey = Survey.new(survey_params)
-    
+
     if @survey.save
       render json: @survey, status: :created
     else

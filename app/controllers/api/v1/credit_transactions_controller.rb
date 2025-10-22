@@ -1,5 +1,5 @@
 class Api::V1::CreditTransactionsController < ApplicationController
-  before_action :set_credit_transaction, only: [:show, :update, :destroy]
+  before_action :set_credit_transaction, only: [ :show, :update, :destroy ]
 
   # GET /api/v1/credit_transactions
   def index
@@ -15,7 +15,7 @@ class Api::V1::CreditTransactionsController < ApplicationController
   # POST /api/v1/credit_transactions
   def create
     @credit_transaction = CreditTransaction.new(credit_transaction_params)
-    
+
     if @credit_transaction.save
       render json: @credit_transaction, status: :created
     else

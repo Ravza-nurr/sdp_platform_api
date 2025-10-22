@@ -4,7 +4,7 @@ class Scale < ApplicationRecord
   has_many :surveys
 
   # Durum tanımlamaları
-  enum status: { draft: 0, review: 1, published: 2, archived: 3 }
+  enum :status, { draft: 0, review: 1, published: 2, archived: 3 }
 
   # Doğrulamalar
   validates :title, presence: true

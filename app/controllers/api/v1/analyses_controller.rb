@@ -1,5 +1,5 @@
 class Api::V1::AnalysesController < ApplicationController
-  before_action :set_analysis, only: [:show, :update, :destroy]
+  before_action :set_analysis, only: [ :show, :update, :destroy ]
 
   # GET /api/v1/analyses
   def index
@@ -15,7 +15,7 @@ class Api::V1::AnalysesController < ApplicationController
   # POST /api/v1/analyses
   def create
     @analysis = Analysis.new(analysis_params)
-    
+
     if @analysis.save
       render json: @analysis, status: :created
     else

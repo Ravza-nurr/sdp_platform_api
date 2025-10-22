@@ -7,5 +7,5 @@ class Response < ApplicationRecord
   validates :survey_id, presence: true
   validates :participant_id, presence: true
   validates :response_data, presence: true
-  validates :is_complete, inclusion: { in: [true, false] }
+  validates :is_complete, inclusion: { in: [ true, false ] }
 end

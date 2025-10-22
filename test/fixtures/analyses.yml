@@ -1,25 +1,25 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: 
-  survey_id: 
-  analysis_type: 1
-  parameters: 
-  results: 
-  status: 1
-  credit_cost: 1
-  r_script: MyText
-  output_file: MyString
-  error_message: MyText
+  user_id: <%= User.first&.id || "00000000-0000-0000-0000-000000000001" %>
+  survey_id: <%= Survey.first&.id || "00000000-0000-0000-0000-000000000001" %>
+  analysis_type: 0
+  parameters: { "method": "descriptive", "confidence": 0.95 }
+  results: { "mean": 3.5, "std": 1.2, "n": 100 }
+  status: 2
+  credit_cost: 10
+  r_script: "summary(data)"
+  output_file: "analysis_001.pdf"
+  error_message: ""
 
 two:
-  user_id: 
-  survey_id: 
+  user_id: <%= User.first&.id || "00000000-0000-0000-0000-000000000001" %>
+  survey_id: <%= Survey.first&.id || "00000000-0000-0000-0000-000000000001" %>
   analysis_type: 1
-  parameters: 
-  results: 
-  status: 1
-  credit_cost: 1
-  r_script: MyText
-  output_file: MyString
-  error_message: MyText
+  parameters: { "method": "factor_analysis", "factors": 3 }
+  results: { "eigenvalues": [2.1, 1.8, 1.5], "loadings": {} }
+  status: 2
+  credit_cost: 15
+  r_script: "factanal(data, factors=3)"
+  output_file: "analysis_002.pdf"
+  error_message: ""
