@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  analysis_id: 
+  user_id: 
+  format: 1
+  content: MyText
+  file_path: MyString
+  status: 1
+
+two:
+  analysis_id: 
+  user_id: 
+  format: 1
+  content: MyText
+  file_path: MyString
+  status: 1

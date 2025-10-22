@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  scale_id: 
+  user_id: 
+  status: 1
+  distribution_mode: 1
+  start_date: 2025-10-21 22:01:36
+  end_date: 2025-10-21 22:01:36
+  response_count: 1
+  target_responses: 1
+  settings: 
+
+two:
+  title: MyString
+  description: MyText
+  scale_id: 
+  user_id: 
+  status: 1
+  distribution_mode: 1
+  start_date: 2025-10-21 22:01:36
+  end_date: 2025-10-21 22:01:36
+  response_count: 1
+  target_responses: 1
+  settings: 

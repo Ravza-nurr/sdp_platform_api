@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  doi_identifier: MyString
+  version: MyString
+  language: MyString
+  category: MyString
+  total_items: 1
+  creator_id: 
+  status: 1
+  metadata: 
+  usage_count: 1
+
+two:
+  title: MyString
+  description: MyText
+  doi_identifier: MyString
+  version: MyString
+  language: MyString
+  category: MyString
+  total_items: 1
+  creator_id: 
+  status: 1
+  metadata: 
+  usage_count: 1
