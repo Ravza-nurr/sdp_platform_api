@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 module Api
   module V1
@@ -8,7 +8,7 @@ module Api
       # Testlerinizi buraya ekleyin. Örneğin:
 
       test "should get index" do
-        # Henüz gerçek bir Analysis modeliniz veya veriniz yoksa, 
+        # Henüz gerçek bir Analysis modeliniz veya veriniz yoksa,
         # bu testin geçmesi için gereken koşulları ayarlayın.
         # Örneğin: get api_v1_analyses_url, as: :json
         # Şimdilik varsayılan bir geçiş testi bırakalım:
@@ -16,7 +16,6 @@ module Api
       end
 
       # Diğer testlerinizi buraya eklemelisiniz. Örneğin, POST, GET #show, vb.
-
     end
   end
 end

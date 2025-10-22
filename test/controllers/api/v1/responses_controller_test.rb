@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 module Api
   module V1
@@ -9,11 +9,10 @@ module Api
       test "should get index (Basit Test)" do
         # Gerçek test mantığınızı buraya eklemelisiniz.
         # Örneğin: get api_v1_responses_url, as: :json
-        assert true 
+        assert true
       end
 
       # Diğer testlerinizi buraya ekleyin (show, create, update, destroy aksiyonları için)
-
     end
   end
 end

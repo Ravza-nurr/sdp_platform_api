@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 module Api
   module V1
@@ -7,13 +7,12 @@ module Api
       # Testlerin başlaması için gerekli ayarları burada yapabilirsiniz (örneğin fixture'lar).
 
       test "should get index (Basit Test)" do
-        # Gerçek veritabanı bağlantısı kurulup CreditTransaction nesneleri yaratıldıktan sonra 
+        # Gerçek veritabanı bağlantısı kurulup CreditTransaction nesneleri yaratıldıktan sonra
         # bu testin içeriğini tamamlamanız gerekecek.
-        assert true 
+        assert true
       end
 
       # Diğer testlerinizi buraya ekleyin (show, create, update, destroy aksiyonları için)
-
     end
   end
 end
