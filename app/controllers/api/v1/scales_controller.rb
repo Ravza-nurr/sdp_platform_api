@@ -46,9 +46,12 @@ class Api::V1::ScalesController < ApplicationController
 
   def scale_params
     # Status ve usage_count alanlarını sadece scale sahibi veya admin değiştirebilir
-    permitted_params = [ :title, :description, :doi_identifier, :version, :language, :category, :total_items, :metadata ]
+    permitted_params = [ :title, :description, :doi_identifier, :version, :language, :category, :total_items, :metadata, :creator_id ]
 
-    if current_user&.admin? || @scale&.creator_id == current_user&.id
+    # Create action'da @scale nil olabilir, bu yüzden creator_id parametresinden kontrol ediyoruz
+    creator_id = @scale&.creator_id || params.dig(:scale, :creator_id)
+    
+    if current_user&.admin? || (creator_id && creator_id.to_s == current_user&.id.to_s)
       permitted_params += [ :status, :usage_count ]
     end
 

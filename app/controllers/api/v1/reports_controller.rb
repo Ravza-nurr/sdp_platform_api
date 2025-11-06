@@ -46,9 +46,12 @@ class Api::V1::ReportsController < ApplicationController
 
   def report_params
     # Status alanını sadece report sahibi veya admin değiştirebilir
-    permitted_params = [ :analysis_id, :format, :content, :file_path ]
+    permitted_params = [ :analysis_id, :format, :content, :file_path, :user_id ]
 
-    if current_user&.admin? || @report&.user_id == current_user&.id
+    # Create action'da @report nil olabilir, bu yüzden user_id parametresinden kontrol ediyoruz
+    user_id = @report&.user_id || params.dig(:report, :user_id)
+    
+    if current_user&.admin? || (user_id && user_id.to_s == current_user&.id.to_s)
       permitted_params << :status
     end
 

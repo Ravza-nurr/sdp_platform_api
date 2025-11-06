@@ -46,9 +46,12 @@ class Api::V1::SurveysController < ApplicationController
 
   def survey_params
     # Status ve response_count alanlarını sadece survey sahibi veya admin değiştirebilir
-    permitted_params = [ :title, :description, :scale_id, :distribution_mode, :start_date, :end_date, :target_responses, :settings ]
+    permitted_params = [ :title, :description, :scale_id, :distribution_mode, :start_date, :end_date, :target_responses, :settings, :user_id ]
 
-    if current_user&.admin? || @survey&.user_id == current_user&.id
+    # Create action'da @survey nil olabilir, bu yüzden user_id parametresinden kontrol ediyoruz
+    user_id = @survey&.user_id || params.dig(:survey, :user_id)
+    
+    if current_user&.admin? || (user_id && user_id.to_s == current_user&.id.to_s)
       permitted_params += [ :status, :response_count ]
     end
 

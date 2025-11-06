@@ -46,9 +46,12 @@ class Api::V1::AnalysesController < ApplicationController
 
   def analysis_params
     # Status, results ve credit_cost alanlarını sadece analysis sahibi veya admin değiştirebilir
-    permitted_params = [ :survey_id, :analysis_type, :parameters, :r_script, :output_file, :error_message ]
+    permitted_params = [ :survey_id, :analysis_type, :parameters, :r_script, :output_file, :error_message, :user_id ]
 
-    if current_user&.admin? || @analysis&.user_id == current_user&.id
+    # Create action'da @analysis nil olabilir, bu yüzden user_id parametresinden kontrol ediyoruz
+    user_id = @analysis&.user_id || params.dig(:analysis, :user_id)
+    
+    if current_user&.admin? || (user_id && user_id.to_s == current_user&.id.to_s)
       permitted_params += [ :status, :results, :credit_cost ]
     end
 
